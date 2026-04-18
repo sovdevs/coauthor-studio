@@ -3,9 +3,7 @@ services:
     name: coauthor-studio
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn augmented_fiction.web.app:app --host 0.0.0.0 --port $PORT
+    startCommand: PYTHONPATH=src uvicorn augmented_fiction.web.app:app --host 0.0.0.0 --port $PORT
     envVars:
-      - key: PYTHONPATH
-        value: src
       - key: OPENAI_API_KEY
         sync: false   # set manually in Render dashboard
