@@ -1,22 +1,29 @@
 [build]
-  command   = "pip install -r requirements.txt && pip install -e ."
+  # Copy static assets into public/static/ so Netlify CDN serves them directly.
+  # Then install Python deps and the local package (without re-hashing deps).
+  command = """
+    mkdir -p public/static &&
+    cp -r src/augmented_fiction/web/static/* public/static/ &&
+    pip install -r requirements.txt &&
+    pip install -e . --no-deps
+  """
   functions = "netlify/functions"
-  publish   = "src/augmented_fiction/web/static"
+  publish   = "public"
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
 
 [functions]
+  # Bundle everything the function needs at runtime
   included_files = [
     "src/**",
-    "modules/**",
+    "resources/**",
     "prompts/**",
-    "projects/**",
   ]
 
-[[redirects]]
-  from   = "/static/*"
-  to     = "/:splat"
-  status = 200
-
+# Static assets are served directly from public/ by Netlify CDN.
+# All other requests go to the FastAPI function.
 [[redirects]]
   from   = "/*"
-  to     = "/.netlify/functions/api/:splat"
+  to     = "/.netlify/functions/api"
   status = 200
