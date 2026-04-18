@@ -1,0 +1,28 @@
+# Secrets
+.env
+*.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+
+# Heavy offline corpus data — local only, not needed for web demo
+modules/voice/roget/
+modules/voice/cormac_mccarthy/
+modules/voice/henry_miller/
+modules/voice/turnofphrase/
+
+# Large unused raw dictionary source — compact version is used instead
+resources/dictionary/wiktionary-en.json
+
+# User project data — keep local only
+projects/
+
+# OS
+.DS_Store

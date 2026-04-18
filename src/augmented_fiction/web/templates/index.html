@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% block title %}CoAuthor Studio{% endblock %}
+
+{% block content %}
+<div class="home-layout">
+
+  {# ── Left: project info panel ─────────────────────────────────────────── #}
+  <section class="project-panel">
+    <div class="project-panel-inner">
+      <p class="eyebrow">AI-first writing for serious writers</p>
+
+      <h2>Write with an intelligent co-author</h2>
+
+      <p class="lead">
+        This project is building a new kind of writing environment: not an AI toy, not just an editor, and not just for fiction.
+        It is designed for writers who want to work with language, structure, voice, character, and revision in a deeper way.
+      </p>
+
+      <div class="project-points">
+        <p><strong>Not just fiction</strong> → any long-form writing</p>
+        <p><strong>Not just AI help</strong> → co-authoring system</p>
+        <p><strong>Not just editing</strong> → world + character + dialogue engine</p>
+        <p><strong>Not just UI</strong> → CLI + programmable writing workflows</p>
+      </div>
+
+      <p>
+        Today, the tool helps writers draft, extend, reshape, and manage manuscripts with AI built directly into the writing process.
+        It is for people who want to write partly auto-generated stories, explore voices and styles, quote authors inline, generate dialogue between characters,
+        and move fluidly between an online interface and command-line workflows.
+      </p>
+
+      <p>
+        Longer term, with funding, the project hopes to grow into a full writing platform for AI-aware authors:
+        a serious environment for manuscript development, collaboration, structured drafting, reusable characters, style-aware generation, and programmable creative workflows.
+      </p>
+
+      <h3>Future directions</h3>
+      <ul>
+        <li>Multilingual support</li>
+        <li>User management and collaborative workspaces</li>
+        <li>Export-ready manuscript workflows for submission to publishers</li>
+        <li>Advanced character, world, and dialogue systems</li>
+        <li>Better tooling for long projects, research, and revision management</li>
+      </ul>
+
+      <div class="writers-callout">
+        <strong>Writers wanted!</strong>
+        <p>
+          We are looking for writers, experimenters, and early users to help shape where this project goes next.
+          Join the discussion, express interest, and help define the future of AI-native writing tools.
+        </p>
+      </div>
+
+      <p class="panel-cta">
+        Interested? Write to us:
+        <a class="cta-link" id="contact-link" href="#">&#100;&#101;&#118;&#115;&#64;&#99;&#111;&#103;&#116;&#114;&#105;&#120;&#46;&#101;&#117;</a>
+      </p>
+      <script>
+        (function(){
+          var e = [100,101,118,115,64,99,111,103,116,114,105,120,46,101,117];
+          var a = e.map(function(c){return String.fromCharCode(c);}).join('');
+          var l = document.getElementById('contact-link');
+          if(l){ l.href = 'mailto:' + a; l.textContent = a; }
+        })();
+      </script>
+    </div>
+  </section>
+
+  {# ── Right: projects list ─────────────────────────────────────────────── #}
+  <div class="projects-column">
+    <h1>Projects</h1>
+
+    {% if projects %}
+    <ul class="project-list">
+      {% for p in projects %}
+      <li>
+        <a href="/project/{{ p.id }}" class="project-link">
+          <span class="project-title">{{ p.title }}</span>
+          <span class="project-meta">
+            <span class="badge badge-mode">{{ p.mode }}</span>
+            <span class="project-author">{{ p.author }}</span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty-state">No projects yet. Run <code>af init</code> to create one.</p>
+    {% endif %}
+  </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+[build]
+  command   = "pip install -r requirements.txt && pip install -e ."
+  functions = "netlify/functions"
+  publish   = "src/augmented_fiction/web/static"
+
+[functions]
+  included_files = [
+    "src/**",
+    "modules/**",
+    "prompts/**",
+    "projects/**",
+  ]
+
+[[redirects]]
+  from   = "/static/*"
+  to     = "/:splat"
+  status = 200
+
+[[redirects]]
+  from   = "/*"
+  to     = "/.netlify/functions/api/:splat"
+  status = 200

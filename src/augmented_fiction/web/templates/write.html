@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% block title %}{{ config.project.title }} — Augmented Fiction{% endblock %}
+
+{% block content %}
+
+{# ── Chapter / project bar ──────────────────────────────────────────────── #}
+<div class="chapter-bar">
+  <div class="chapter-bar-inner">
+
+    <span class="bar-project">{{ config.project.title }}</span>
+
+    {% if config.chapters.enabled and chapters %}
+    <div class="bar-chapter">
+      <select id="chapter-select" class="chapter-select">
+        {% for ch in chapters %}
+        <option value="{{ ch.chapter_id }}"
+          {% if current_chapter and ch.chapter_id == current_chapter.chapter_id %}selected{% endif %}>
+          {{ ch.chapter_number }}. {{ ch.title }}
+        </option>
+        {% endfor %}
+      </select>
+      <button id="new-chapter-btn" class="bar-btn" type="button">+ New</button>
+    </div>
+    {% endif %}
+
+    <div class="bar-badges">
+      <span class="badge badge-mode">{{ config.mode.type.value }}</span>
+      {% if config.mode.language != "en" %}
+        <span class="badge badge-lang">{{ config.mode.language }}</span>
+      {% endif %}
+      {% for m in active_modules %}
+        <span class="badge badge-module">{{ m.replace("_", " ") }}</span>
+      {% endfor %}
+    </div>
+
+    <label class="sound-toggle-label">
+      <input type="checkbox" id="sound-toggle"> sounds
+    </label>
+
+  </div>
+</div>
+
+{# ── Page wrapper ───────────────────────────────────────────────────────── #}
+<div class="page-wrapper">
+
+  {# ── Left page — manuscript ───────────────────────────────────────────── #}
+  <div class="manuscript-sheet">
+    <div id="manuscript-content">
+      {% if finalized %}
+        {% for s in finalized %}
+        <div class="manuscript-segment">{{ s }}</div>
+        {% endfor %}
+      {% else %}
+        <div class="manuscript-empty">(no segments yet)</div>
+      {% endif %}
+    </div>
+  </div>
+
+  {# ── Right page — command output + typing area ────────────────────────── #}
+  <div class="page-right">
+
+  <div id="command-output" class="command-output" hidden></div>
+
+  {# ── Typing area ──────────────────────────────────────────────────────── #}
+  <div class="typing-area">
+
+    <form id="sentence-form" autocomplete="off">
+      <textarea
+        id="sentence-field"
+        name="sentence"
+        rows="5"
+        placeholder="Write here… (Enter = new line, ⌘ Enter = submit)"
+        autofocus
+      ></textarea>
+      <div class="typing-controls">
+        <button type="submit" id="submit-btn">Submit</button>
+        <span class="submit-hint">⌘ Enter</span>
+        <p id="submit-status" class="submit-status" aria-live="polite"></p>
+      </div>
+    </form>
+
+    <div class="cmd-ref">
+      <span class="cmd-ref-title">Commands (type on a new empty line)</span>
+      {% if config.modules.dictionary.enabled %}
+      <code>:d word</code> dictionary &nbsp;
+      {% endif %}
+      {% if config.modules.thesaurus.enabled %}
+      <code>:t word</code> thesaurus &nbsp;
+      {% endif %}
+      <code>:del n</code> delete segment n
+      {% if config.chapters.enabled %}
+      &nbsp; <code>:chapters</code> list &nbsp;
+      <code>:c n</code> switch &nbsp;
+      <code>:new [title]</code> new chapter
+      {% endif %}
+      &nbsp; <code>:help</code> &nbsp; <code>:q</code> quit
+    </div>
+
+  </div>{# end typing-area #}
+  </div>{# end page-right #}
+</div>
+
+<script>
+  window.AF_PROJECT_ID       = "{{ config.project.project_id }}";
+  window.AF_CHAPTERS_ENABLED = {{ "true" if config.chapters.enabled else "false" }};
+</script>
+{% endblock %}
