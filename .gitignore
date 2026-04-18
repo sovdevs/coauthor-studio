@@ -22,9 +22,11 @@ modules/voice/turnofphrase/
 resources/dictionary/wiktionary-en.json
 
 # User project data — keep local only, except the public demo project
-projects/
+projects/*
 !projects/dummy_project/
 !projects/dummy_project/**
+!projects/dummy_render/
+!projects/dummy_render/**
 
 # OS
 .DS_Store

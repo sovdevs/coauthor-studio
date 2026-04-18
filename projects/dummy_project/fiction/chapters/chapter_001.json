@@ -1,0 +1,155 @@
+{
+  "chapter_id": "chapter_001",
+  "chapter_number": 1,
+  "title": "Chapter 1",
+  "status": "draft",
+  "summary": "",
+  "notes": "",
+  "last_updated": "2026-04-18T07:29:00.116717Z",
+  "sentences": [
+    {
+      "sentence_id": "sent_000001",
+      "text": "The rain had stopped by then.",
+      "finalized_at": "2026-04-09T12:10:00Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000002",
+      "text": "Nobody else was on the street.",
+      "finalized_at": "2026-04-09T12:11:00Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000003",
+      "text": "He paused at the gate.",
+      "finalized_at": "2026-04-09T12:12:00Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000004",
+      "text": "The station bell sounded once.",
+      "finalized_at": "2026-04-09T12:13:00Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000005",
+      "text": "Still he did not turn.",
+      "finalized_at": "2026-04-09T12:14:00Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000006",
+      "text": "In the beginning there was the man.",
+      "finalized_at": "2026-04-09T16:19:21.812220Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000007",
+      "text": "And then this happened.",
+      "finalized_at": "2026-04-09T16:19:35.892151Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000008",
+      "text": "What the man did not get entered.",
+      "finalized_at": "2026-04-09T16:19:51.162311Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000011",
+      "text": "Ok so now I am entering another sentence",
+      "finalized_at": "2026-04-10T14:04:11.573223Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000012",
+      "text": "testing the next one",
+      "finalized_at": "2026-04-10T16:35:15.517900Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000013",
+      "text": "sop here it is",
+      "finalized_at": "2026-04-10T16:38:46.511803Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000014",
+      "text": "Hello there i am now able to wrie across multipel lines. \nwill it work yes it will.\nI am pleased\n:;;\nsss\n:q\n:quit",
+      "finalized_at": "2026-04-13T06:40:37.723196Z",
+      "line_count": 7
+    },
+    {
+      "sentence_id": "sent_000015",
+      "text": "hello how are you?",
+      "finalized_at": "2026-04-13T07:04:42.663568Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000016",
+      "text": "this is better",
+      "finalized_at": "2026-04-13T07:04:49.144407Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000017",
+      "text": "this is even better\r\nthan before I just need to feel it yeh",
+      "finalized_at": "2026-04-13T07:05:00.013445Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000018",
+      "text": "What of this?",
+      "finalized_at": "2026-04-13T07:05:08.358167Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000019",
+      "text": "so it plays both at same ime.ss",
+      "finalized_at": "2026-04-13T07:08:37.247029Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000020",
+      "text": "test it. Ok why does it do this?",
+      "finalized_at": "2026-04-13T07:14:31.984267Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000021",
+      "text": "ok this soudns better bow. thanks.\r\nSo what are we about?",
+      "finalized_at": "2026-04-13T07:17:02.944911Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000022",
+      "text": "This is the vision.",
+      "finalized_at": "2026-04-13T07:24:18.261227Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000023",
+      "text": "I am typoing.\r\nthis is my new app/",
+      "finalized_at": "2026-04-13T09:02:02.501796Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000024",
+      "text": "testing it. so no sound in the CLI\nbut we do get new lines which is great!",
+      "finalized_at": "2026-04-13T09:20:45.710830Z",
+      "line_count": 2
+    },
+    {
+      "sentence_id": "sent_000025",
+      "text": "mommy went to the circus.",
+      "finalized_at": "2026-04-18T07:19:08.830677Z",
+      "line_count": 1
+    },
+    {
+      "sentence_id": "sent_000026",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris est ligula, tristique sit amet nibh at, semper commodo metus. Nam fermentum sollicitudin augue in efficitur. Aliquam id nisl tortor. Donec a accumsan nisl. In ac nunc molestie risus rhoncus dignissim. Donec non turpis leo. Nam magna ipsum, blandit vitae diam quis, aliquam scelerisque massa. In quis ullamcorper turpis, et elementum nisl. Ut rutrum lorem lorem, a elementum libero faucibus volutpat. Sed suscipit sapien quis tellus cursus accumsan. Maecenas at elit libero. In scelerisque augue imperdiet efficitur ultrices. Quisque rhoncus tempor sem, rutrum bibendum odio dignissim at.\r\n\r\nProin vel blandit dolor. Vivamus eu erat felis. Duis dictum nulla nec commodo scelerisque. Donec aliquet urna ut sem pharetra volutpat. Donec id odio nec orci eleifend vulputate a in metus. Curabitur ut risus nec mi accumsan viverra. Curabitur cursus lacus nec magna facilisis fermentum. Curabitur condimentum et mi tempor ullamcorper. Nulla molestie risus sapien, sit amet bibendum eros posuere sed. Mauris a accumsan arcu. Quisque sit amet orci nunc. Integer vulputate eleifend feugiat. Donec molestie fermentum fermentum. Sed facilisis odio vitae urna rhoncus vulputate quis sit amet nisi. Proin varius vel velit placerat laoreet. Duis eget porta erat.\r\n\r\nMaecenas libero dui, lobortis vitae dapibus nec, maximus at risus. Phasellus eu ex eu magna rutrum mattis. Pellentesque rhoncus risus et mauris tincidunt, sit amet faucibus orci elementum. Etiam faucibus convallis mauris. Etiam ex lectus, congue at varius non, hendrerit quis sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Quisque ut porta lectus, ut cursus est. Fusce mattis varius ex nec fermentum. Mauris in tempus sapien. In posuere metus sed facilisis viverra. Donec vestibulum odio ut feugiat rhoncus. Aliquam cursus ut enim ut gravida.",
+      "finalized_at": "2026-04-18T07:29:00.116143Z",
+      "line_count": 1
+    }
+  ]
+}

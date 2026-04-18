@@ -1,0 +1,150 @@
+{
+  "project": {
+    "project_id": "dummy_project",
+    "title": "Dummy Writing Project",
+    "description": "Starter project for AI-augmented writing",
+    "created_at": "2026-04-09T12:00:00Z",
+    "author": "user"
+  },
+  "mode": {
+    "type": "fiction",
+    "subtype": "general",
+    "language": "en"
+  },
+  "llm": {
+    "provider": "openai",
+    "model": "gpt-4o-mini",
+    "temperature": 0.2,
+    "api_key_env": "OPENAI_API_KEY",
+    "tool_mode": "enabled"
+  },
+  "chapters": {
+    "enabled": true,
+    "no_chapters": false,
+    "chapters_dir": "fiction/chapters/",
+    "default_current_chapter": "chapter_001",
+    "allow_chapter_switching": true
+  },
+  "interface": {
+    "show_last_finalized_segments": true,
+    "last_finalized_segment_count": 5,
+    "allow_manual_override": true,
+    "show_module_warnings": true,
+    "show_module_suggestions": true,
+    "show_current_chapter": true,
+    "submit_token": ";;",
+    "manuscript_view_enabled": true,
+    "manuscript_line_spacing": "double",
+    "typewriter_theme": true,
+    "typewriter_sounds": false
+  },
+  "document": {
+    "draft_file": "draft.md",
+    "history_file": "sentence_history.jsonl",
+    "export_format_defaults": ["md", "txt", "docx"]
+  },
+  "modules": {
+    "dictionary": {
+      "enabled": true,
+      "order": 1,
+      "settings": {
+        "suggest_on_input": true,
+        "allow_cli_search": true
+      }
+    },
+    "thesaurus": {
+      "enabled": true,
+      "order": 2,
+      "settings": {
+        "suggest_on_input": true,
+        "allow_cli_search": true,
+        "max_synonym_groups": 5
+      }
+    },
+    "translate": {
+      "enabled": false,
+      "order": 3,
+      "settings": {
+        "source_language": "auto",
+        "target_language": "en",
+        "style_reference_mode": null,
+        "style_reference_id": null,
+        "translation_priority": "meaning_first"
+      }
+    },
+    "match_style_of_author": {
+      "enabled": false,
+      "order": 4,
+      "settings": {
+        "author_name": null,
+        "style_corpus_dir": "stores/style_corpus/",
+        "max_style_matches": 3
+      }
+    },
+    "character_consistency": {
+      "enabled": false,
+      "order": 5,
+      "settings": {
+        "characters_file": "knowledge/characters.json",
+        "strictness": "medium"
+      }
+    },
+    "world_rule_check": {
+      "enabled": false,
+      "order": 6,
+      "settings": {
+        "rules_file": "knowledge/RULES.md",
+        "strictness": "medium"
+      }
+    },
+    "claim_grounding": {
+      "enabled": false,
+      "order": 7,
+      "settings": {
+        "papers_file": "knowledge/papers.json",
+        "minimum_evidence_count": 1,
+        "allow_unsubstantiated_finalize": true
+      }
+    },
+    "citation_suggestion": {
+      "enabled": false,
+      "order": 8,
+      "settings": {
+        "papers_file": "knowledge/papers.json",
+        "citation_style": "apa"
+      }
+    }
+  },
+  "knowledge_sources": {
+    "rules_file": "fiction/RULES.md",
+    "characters_file": "fiction/CHARACTERS.md",
+    "glossary_file": "knowledge/glossary.json",
+    "papers_file": "knowledge/papers.json",
+    "style_corpus_dir": "stores/style_corpus/",
+    "plot_file": "fiction/PLOT.md",
+    "feedback_file": "fiction/FEEDBACK.md",
+    "places_file": "fiction/PLACES.md",
+    "style_file": "fiction/STYLE.md",
+    "timeline_file": "fiction/TIMELINE.md"
+  },
+  "policies": {
+    "allow_warning_bypass": true,
+    "preserve_raw_input": true,
+    "require_explicit_finalize": true
+  },
+  "lexical_backends": {
+    "dictionary": {
+      "type": "file",
+      "paths": [
+        "resources/dictionary/dictionary_compact.json",
+        "resources/dictionary/wiktionary-en.json"
+      ]
+    },
+    "thesaurus": {
+      "type": "file",
+      "paths": [
+        "resources/thesaurus/moby.json"
+      ]
+    }
+  }
+}
