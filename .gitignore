@@ -21,8 +21,10 @@ modules/voice/turnofphrase/
 # Large unused raw dictionary source — compact version is used instead
 resources/dictionary/wiktionary-en.json
 
-# User project data — keep local only
+# User project data — keep local only, except the public demo project
 projects/
+!projects/dummy_project/
+!projects/dummy_project/**
 
 # OS
 .DS_Store
