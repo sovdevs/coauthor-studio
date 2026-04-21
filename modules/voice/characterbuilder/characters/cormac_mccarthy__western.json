@@ -1,0 +1,83 @@
+{
+  "character_id": "cormac_mccarthy__western",
+  "display_name": "Western",
+  "source_author": "Cormac Mccarthy",
+  "source_work": "XI_The Passenger",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T11:31:30Z",
+  "updated_at": "2026-04-21T11:31:30Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "He was up on the stage playing the mandolin with the band. Bluegrass.",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "medium"
+  },
+  "surface": {
+    "first_impression": "Western regarded him warily."
+  },
+  "inner_engine": {
+    "core_desire": "I have to do something. I think I get that.",
+    "core_fear": "No, Your Honor. I should have killed myself years ago.",
+    "avoidance": "",
+    "what_they_hide": "",
+    "key_contradiction": "You dont take me seriously. But I’ll prattle on a while yet.",
+    "contradiction_behavior": "Western watched him eat with a certain admiration.",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "Western was given the run of it.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "He pulled reflectively on his cigar. He shook his head almost in sadness.",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "",
+    "behaviors": [],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [],
+    "authorial_material": []
+  },
+  "story": {
+    "role": null,
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/cormac_mccarthy/characters/cormac_mccarthy__western.json",
+    "registry_path": "modules/voice/characterbuilder/characters/cormac_mccarthy__western.json"
+  }
+}

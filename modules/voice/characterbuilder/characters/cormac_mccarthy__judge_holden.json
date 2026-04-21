@@ -1,0 +1,108 @@
+{
+  "character_id": "cormac_mccarthy__judge_holden",
+  "display_name": "Judge Holden",
+  "source_author": "Cormac Mccarthy",
+  "source_work": "V_Blood Meridian",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T11:30:16Z",
+  "updated_at": "2026-04-21T11:30:16Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "foremost among them, outsized and childlike with his naked face, rode the judge."
+  },
+  "inner_engine": {
+    "core_desire": "the ultimate trade awaiting its ultimate practitioner.",
+    "core_fear": "",
+    "avoidance": "",
+    "what_they_hide": "",
+    "key_contradiction": "",
+    "contradiction_behavior": "",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "the judge smiled, his face shining with grease.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "each was called upon to empty out his heart into the common and one did not.",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "",
+    "behaviors": [],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "If God meant to interfere in the degeneracy of mankind would he not have done so by now? Wolves cull themselves, man. What other creature could? And is the race of man not more predacious yet? The way of the world is to bloom and to flower and die but in the affairs of men there is no waning and the noon of his expression signals the onset of night. His spirit is exhausted at the peak of its achievement.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "What joins men together, he said, is not the sharing of bread but the sharing of enemies.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "War endures. As well ask men what they think of stone. War was always here. Before man was, war waited for him.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": null,
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/cormac_mccarthy/characters/cormac_mccarthy__judge_holden.json",
+    "registry_path": "modules/voice/characterbuilder/characters/cormac_mccarthy__judge_holden.json"
+  }
+}

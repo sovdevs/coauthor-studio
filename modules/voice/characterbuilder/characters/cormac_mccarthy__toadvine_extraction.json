@@ -1,0 +1,44 @@
+{
+  "character_id": "cormac_mccarthy__toadvine",
+  "extraction_timestamp": "2026-04-21T11:32:09Z",
+  "source_author_dir": "modules/voice/turnofphrase/cormac_mccarthy",
+  "model": "claude-sonnet-4-6",
+  "evidence_file": "modules/voice/turnofphrase/cormac_mccarthy/evidence/toadvine.md",
+  "mention_count": 93,
+  "dialogue_count": 34,
+  "candidate_score": 164.0,
+  "field_confidence": {
+    "inner_engine.core_desire": {
+      "confidence": "high",
+      "note": ""
+    },
+    "inner_engine.core_fear": {
+      "confidence": "high",
+      "note": ""
+    },
+    "inner_engine.key_contradiction": {
+      "confidence": "medium",
+      "note": ""
+    },
+    "inner_engine.shame": {
+      "confidence": "low",
+      "note": ""
+    },
+    "voice.description": {
+      "confidence": "high",
+      "note": ""
+    },
+    "behavior.conflict_response": {
+      "confidence": "medium",
+      "note": ""
+    },
+    "behavior.pressure_response": {
+      "confidence": "low",
+      "note": ""
+    },
+    "demographics.regionalism": {
+      "confidence": "medium",
+      "note": ""
+    }
+  }
+}

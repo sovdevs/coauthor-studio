@@ -1,0 +1,116 @@
+{
+  "character_id": "cormac_mccarthy__toadvine_2",
+  "display_name": "Toadvine",
+  "source_author": "Cormac Mccarthy",
+  "source_work": "V_Blood Meridian",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T13:01:10Z",
+  "updated_at": "2026-04-21T13:01:10Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "Kentucky",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "He is big and raw-looking with a necklace of human ears and one sagging eyelid."
+  },
+  "inner_engine": {
+    "core_desire": "To escape his current situation and make a profit.",
+    "core_fear": "Arrest and captivity.",
+    "avoidance": "",
+    "what_they_hide": "",
+    "key_contradiction": "He exhibits both chaotic violence and practicality in his plans.",
+    "contradiction_behavior": "He engages in brutal acts while also strategizing to leave a dangerous place.",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "Toadvine's speech is direct and often harsh, revealing a rough demeanor.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "Toadvine reacts with aggression and violence when provoked.",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "",
+    "behaviors": [],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "Gentlemens, we’re gettin out of this shithole.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Kick his mouth in, called Toadvine.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "I told him there was three of us.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Hell, said Toadvine. I allowed you knowed he was gone.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": null,
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/cormac_mccarthy/characters/cormac_mccarthy__toadvine_2.json",
+    "registry_path": "modules/voice/characterbuilder/characters/cormac_mccarthy__toadvine_2.json"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "character_id": "cormac_mccarthy__the_kid",
+  "extraction_timestamp": "2026-04-21T11:28:58Z",
+  "source_author_dir": "modules/voice/turnofphrase/cormac_mccarthy",
+  "model": "claude-sonnet-4-6",
+  "evidence_file": "modules/voice/turnofphrase/cormac_mccarthy/evidence/the_kid.md",
+  "mention_count": 777,
+  "dialogue_count": 390,
+  "candidate_score": 1566.0,
+  "field_confidence": {
+    "inner_engine.core_desire": {
+      "confidence": "high",
+      "note": ""
+    },
+    "inner_engine.core_fear": {
+      "confidence": "high",
+      "note": ""
+    },
+    "inner_engine.key_contradiction": {
+      "confidence": "medium",
+      "note": ""
+    },
+    "inner_engine.shame": {
+      "confidence": "low",
+      "note": ""
+    },
+    "voice.description": {
+      "confidence": "high",
+      "note": ""
+    },
+    "behavior.conflict_response": {
+      "confidence": "medium",
+      "note": ""
+    },
+    "behavior.pressure_response": {
+      "confidence": "low",
+      "note": ""
+    },
+    "demographics.regionalism": {
+      "confidence": "medium",
+      "note": ""
+    }
+  }
+}

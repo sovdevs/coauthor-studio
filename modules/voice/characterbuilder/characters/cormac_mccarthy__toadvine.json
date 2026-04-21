@@ -1,0 +1,140 @@
+{
+  "character_id": "cormac_mccarthy__toadvine",
+  "display_name": "Toadvine",
+  "source_author": "Cormac Mccarthy",
+  "source_work": "V_Blood Meridian",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T11:32:09Z",
+  "updated_at": "2026-04-21T11:32:09Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "American",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "big and raw-looking; appears rough around the edges"
+  },
+  "inner_engine": {
+    "core_desire": "to escape his current circumstances",
+    "core_fear": "being apprehended or captured",
+    "avoidance": "",
+    "what_they_hide": "",
+    "key_contradiction": "",
+    "contradiction_behavior": "",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "utilizes direct and coarse language reflective of his rough upbringing",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "prone to violence and aggressive confrontation",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "",
+    "behaviors": [],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "Gentlemens, we’re gettin out of this shithole.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "What’ll you give?",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "I guarangoddamntee ye I know what that there is about.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Kick his mouth in.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "I seen him first.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "I dont know them boys.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Them sons of bitches aint botherin nobody.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": null,
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/cormac_mccarthy/characters/cormac_mccarthy__toadvine.json",
+    "registry_path": "modules/voice/characterbuilder/characters/cormac_mccarthy__toadvine.json"
+  }
+}

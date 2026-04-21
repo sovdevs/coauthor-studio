@@ -4,11 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}CoAuthor Studio{% endblock %}</title>
-  <link rel="stylesheet" href="/static/style.css?v=6">
+  <link rel="stylesheet" href="/static/style.css?v=9">
 </head>
 <body>
   <header style="display:flex;align-items:center;gap:1rem;">
     <a href="/" class="site-name">CoAuthor Studio</a>
+    <nav class="header-nav">
+      <a href="/" class="nav-link">Projects</a>
+      <a href="/characters" class="nav-link">Characters</a>
+      <a href="/dialog/new" class="nav-link">Dialog</a>
+    </nav>
     <button id="dark-toggle" class="dark-toggle" type="button" aria-label="Toggle dark mode">◑ dark</button>
   </header>
   <main>

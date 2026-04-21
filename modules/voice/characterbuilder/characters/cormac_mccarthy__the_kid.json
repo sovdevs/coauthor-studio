@@ -1,0 +1,128 @@
+{
+  "character_id": "cormac_mccarthy__the_kid",
+  "display_name": "The Kid",
+  "source_author": "Cormac Mccarthy",
+  "source_work": "X_TheRoad",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T11:28:58Z",
+  "updated_at": "2026-04-21T11:28:58Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "American",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "The kid appears disheveled and rugged, a product of his harsh environment."
+  },
+  "inner_engine": {
+    "core_desire": "To survive and gain autonomy.",
+    "core_fear": "Fear of being controlled or dominated.",
+    "avoidance": "Avoids discussions that would show vulnerability.",
+    "what_they_hide": "",
+    "key_contradiction": "Displays moments of intimacy while appearing tough.",
+    "contradiction_behavior": "He expresses care yet often acts violently.",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "Speaks in a straightforward, sometimes abrasive manner with a mix of earnestness and sarcasm.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "Engages in violence when provoked but seeks to avoid conflicts that do not serve his interests.",
+    "avoidance_pattern": "Avoids deep emotional connections.",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "Observes surroundings and people's behaviors with a calculating eye.",
+    "behaviors": [
+      "fighting",
+      "spitting",
+      "demanding answers"
+    ],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "Where’s my boots? he said.",
+        "source": "X_TheRoad",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "How about a drink of water? he said.",
+        "source": "X_TheRoad",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "What do you want to do? said the kid.",
+        "source": "X_TheRoad",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "I aint lyin, he said.",
+        "source": "X_TheRoad",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "You aint got a gun, the kid said.",
+        "source": "X_TheRoad",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": "Protagonist who navigates a violent and harsh landscape.",
+    "scene_function": "Serves as a lens through which the brutality of the world is explored."
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/cormac_mccarthy/characters/cormac_mccarthy__the_kid.json",
+    "registry_path": "modules/voice/characterbuilder/characters/cormac_mccarthy__the_kid.json"
+  }
+}

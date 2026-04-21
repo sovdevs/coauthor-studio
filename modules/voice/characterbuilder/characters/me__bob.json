@@ -1,0 +1,98 @@
+{
+  "character_id": "me__bob",
+  "display_name": "Bob",
+  "source_author": "Me",
+  "source_work": null,
+  "source_mode": "manual",
+  "created_at": "2026-04-18T12:41:57Z",
+  "updated_at": "2026-04-19T08:20:03Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "A bit shifty. Has a flash car, Likes the ladies, especially young ones. Surface respectable middle class Northern Englishman with a trophy wife and a regular job. Underneath lecherous."
+  },
+  "inner_engine": {
+    "core_desire": "If women, he wants to seduce them. As a boomer, he needs certainty, needs affirmation of his world view. Looks to trap naivety to his benefit.",
+    "core_fear": "Their bad behavior being discovered by their wife, their bad side being exposed. His carefully crafted image of respectability coming crashing down.",
+    "avoidance": "Having to discuss things in depth, things which would expose them. Long-winded, philosophical conversations, anything 'arty' or 'academic'",
+    "what_they_hide": "Getting older and so no longer being first choice for the ladies. being married with kids and having responsibilities.",
+    "key_contradiction": "They cannot always perform liek they want to sexually, that outside pressure does get to them sometimes.",
+    "contradiction_behavior": "They are honest. They are dishonest.",
+    "shame": "Ashamed of being caught lying. Visible.",
+    "false_belief": "That they are god's gift to women.",
+    "taboo": "They will not treat a woman badly at least on the surface. They will always defer to them."
+  },
+  "voice": {
+    "description": "Short, vernacular, very colloquial and regional: Bradford, England to be precise. Plain simple language. No philosophizing.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "controls",
+    "verbosity": "variable",
+    "explicitness": "high",
+    "fragmentation": "low",
+    "directness": "high"
+  },
+  "behavior": {
+    "conflict_response": "They lie.",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": "They are very charming",
+    "status_with_unneeded": "They do not interact with them except for the usual pleasantries. Beyond that nothing.",
+    "intimacy_style": "They are open-hearted like an artist. They do not fear closeness.",
+    "pressure_response": "Usually they resort to speed- racing somewhere in their Volvo car. Running around, begging for forgiveness. What breaks them is when they have begged too much and the other person leaves them or does something final irreversable.",
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "A pretty girl",
+    "behaviors": [
+      "They say owright, there",
+      "Pull on the bottom of their faux leather jacket to adjust it",
+      "pack their cigarette flatpacks rigorously"
+    ],
+    "sensory_bias": "Sight mostly.",
+    "relational_tendencies": "They are deferential to authority like boomers in general. They exchange pleasantries with strangers. They are good lovers. They fight rivals.",
+    "anti_patterns": [
+      "To buy a rival a pint",
+      "To self-deprecate",
+      "To consider they were ever wrong in front of others"
+    ],
+    "example_lines": [],
+    "speech_patterns": [
+      "more references to external influences (mother, peers)"
+    ],
+    "lexical_markers": [
+      "in for a penny, out for a pound",
+      "Olive Rudge, Olive Sludge",
+      "feminists",
+      "cock-blocking"
+    ],
+    "reference_quotes": [],
+    "authorial_material": []
+  },
+  "story": {
+    "role": "Protagonist and disruptot.",
+    "scene_function": "They person trying to drive the plot in their direction to their benefit."
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": null,
+    "registry_path": "modules/voice/characterbuilder/characters/me__bob.json"
+  }
+}

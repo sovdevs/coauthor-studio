@@ -186,6 +186,270 @@ def _del_sentence(arg: str, ctx: WriteContext) -> CommandResult:
     return CommandResult(f'  Deleted sentence {n_display}: "{preview}"')
 
 
+# ── Character builder helpers ────────────────────────────────────────────────
+
+def _flush_stdin() -> None:
+    """
+    Discard any characters buffered in stdin after an interactive interview.
+
+    Without this, a trailing newline left in the terminal's input buffer is
+    consumed by _read_input() as a blank line, putting the loop in segment
+    mode so the next ':command' is silently treated as prose.
+    """
+    import sys
+    try:
+        import termios
+        termios.tcflush(sys.stdin.fileno(), termios.TCIFLUSH)
+    except Exception:
+        pass
+
+
+# ── Character builder commands ───────────────────────────────────────────────
+
+def _cb_dispatch(arg: str, ctx: WriteContext) -> CommandResult:
+    """
+    Dispatch :cb sub-commands.
+
+    :cb list
+    :cb show <id>
+    :cb create
+    :cb edit <id>
+    :cb delete <id>
+    :cb export <id>
+    :cb dialog <idA> <idB> [--setting "..."]
+    :cb scene  <idA> <idB> [<idC>...] [--setting "..."]
+    """
+    import sys
+
+    parts = arg.split(None, 1)
+    sub = parts[0].lower() if parts else ""
+    rest = parts[1].strip() if len(parts) > 1 else ""
+
+    # ── list ──────────────────────────────────────────────────────────────────
+    if sub == "list" or sub == "":
+        from augmented_fiction.modules.voice.characterbuilder.storage import list_characters
+        chars = list_characters()
+        if not chars:
+            return CommandResult("  No characters in registry.", kind="info")
+        lines = ["  Characters:"]
+        for c in chars:
+            author = f"  [{c.source_author}]" if c.source_author else ""
+            lines.append(
+                f"  {c.character_id:<36}  {c.display_name:<22}{author}"
+            )
+        return CommandResult("\n".join(lines))
+
+    # ── show ──────────────────────────────────────────────────────────────────
+    if sub == "show":
+        if not rest:
+            return CommandResult("  Usage: :cb show <character_id>", kind="error")
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.storage import load_character
+            from augmented_fiction.modules.voice.characterbuilder.schema import profile_to_markdown
+            profile = load_character(rest)
+            return CommandResult(profile_to_markdown(profile))
+        except FileNotFoundError:
+            return CommandResult(f"  Character not found: {rest}", kind="error")
+
+    # ── export ────────────────────────────────────────────────────────────────
+    if sub == "export":
+        if not rest:
+            return CommandResult("  Usage: :cb export <character_id>", kind="error")
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.storage import export_markdown
+            md = export_markdown(rest)
+            return CommandResult(md)
+        except FileNotFoundError:
+            return CommandResult(f"  Character not found: {rest}", kind="error")
+
+    # ── create ────────────────────────────────────────────────────────────────
+    if sub == "create":
+        if not sys.stdin.isatty():
+            return CommandResult(
+                "  :cb create requires the CLI interface.", kind="error"
+            )
+        from augmented_fiction.modules.voice.characterbuilder.interview import run_create_interview
+        from augmented_fiction.modules.voice.characterbuilder.storage import save_character
+        profile = run_create_interview()
+        _flush_stdin()
+        if profile is None:
+            return CommandResult("  Character creation cancelled.", kind="info")
+        save_character(profile)
+        return CommandResult(
+            f"  Saved: {profile.display_name}  ({profile.character_id})\n"
+            f"  Registry: {profile.provenance.registry_path}"
+        )
+
+    # ── edit ──────────────────────────────────────────────────────────────────
+    if sub == "edit":
+        if not rest:
+            return CommandResult("  Usage: :cb edit <character_id>", kind="error")
+        if not sys.stdin.isatty():
+            return CommandResult(
+                "  :cb edit requires the CLI interface.", kind="error"
+            )
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.storage import (
+                load_character, save_character,
+            )
+            from augmented_fiction.modules.voice.characterbuilder.interview import run_edit_interview
+            profile = load_character(rest)
+            updated = run_edit_interview(profile)
+            _flush_stdin()
+            if updated is None:
+                return CommandResult("  Edit cancelled — no changes saved.", kind="info")
+            save_character(updated)
+            return CommandResult(
+                f"  Updated: {updated.display_name}  ({updated.character_id})"
+            )
+        except FileNotFoundError:
+            return CommandResult(f"  Character not found: {rest}", kind="error")
+
+    # ── delete ────────────────────────────────────────────────────────────────
+    if sub == "delete":
+        if not rest:
+            return CommandResult("  Usage: :cb delete <character_id>", kind="error")
+        if not sys.stdin.isatty():
+            return CommandResult(
+                "  :cb delete requires the CLI interface.", kind="error"
+            )
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.storage import (
+                load_character, delete_character,
+            )
+            profile = load_character(rest)
+            try:
+                confirm = input(
+                    f"\n  Delete '{profile.display_name}' ({rest})? [y/N] "
+                ).strip().lower()
+            except (EOFError, KeyboardInterrupt):
+                confirm = "n"
+            if confirm not in ("y", "yes"):
+                _flush_stdin()
+                return CommandResult("  Cancelled.", kind="info")
+            _flush_stdin()
+            delete_character(rest)
+            return CommandResult(f"  Deleted: {rest}")
+        except FileNotFoundError:
+            return CommandResult(f"  Character not found: {rest}", kind="error")
+
+    # ── duplicate ─────────────────────────────────────────────────────────────
+    if sub == "duplicate":
+        if not rest:
+            return CommandResult("  Usage: :cb duplicate <character_id>", kind="error")
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.storage import (
+                duplicate_character,
+                save_character,
+            )
+            new_profile = duplicate_character(rest)
+            save_character(new_profile)
+            return CommandResult(
+                f"  Duplicated → {new_profile.display_name}  ({new_profile.character_id})"
+            )
+        except FileNotFoundError:
+            return CommandResult(f"  Character not found: {rest}", kind="error")
+
+    # ── extract ───────────────────────────────────────────────────────────────
+    if sub == "extract":
+        if not rest:
+            return CommandResult(
+                "  Usage: :cb extract <author_dir>\n"
+                "  e.g.   :cb extract cormac_mccarthy\n"
+                "         :cb extract modules/voice/turnofphrase/ernest_hemingway",
+                kind="error",
+            )
+        if not sys.stdin.isatty():
+            return CommandResult(
+                "  :cb extract requires the CLI interface (interactive candidate selection).",
+                kind="error",
+            )
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.extract.pipeline import run_extract
+            include_narrator = "--include-narrator" in rest
+            author_arg = rest.replace("--include-narrator", "").strip()
+            result_lines = run_extract(author_arg, ctx.config.llm, include_narrator=include_narrator)
+            _flush_stdin()
+            return CommandResult("\n\n" + "\n\n".join(result_lines))
+        except FileNotFoundError as exc:
+            return CommandResult(f"  {exc}", kind="error")
+        except Exception as exc:
+            return CommandResult(f"  Extraction failed: {exc}", kind="error")
+
+    # ── dialog / scene ────────────────────────────────────────────────────────
+    if sub in ("dialog", "scene"):
+        # Parse: :cb dialog <idA> <idB> [--setting "..."] [--quote-mode auto|light|strong]
+        #        [--allow-direct-quotes] [--include-authorial-material]
+        import re
+        setting_match = re.search(r'--setting\s+"([^"]+)"', rest)
+        if not setting_match:
+            setting_match = re.search(r"--setting\s+'([^']+)'", rest)
+        setting = setting_match.group(1) if setting_match else ""
+
+        qm_match = re.search(r"--quote-mode\s+(\S+)", rest)
+        quote_mode = qm_match.group(1) if qm_match else "auto"
+        if quote_mode not in ("auto", "light", "strong"):
+            quote_mode = "auto"
+
+        allow_direct = "--allow-direct-quotes" in rest
+        include_auth = "--include-authorial-material" in rest
+
+        # Strip all flags to isolate character IDs
+        ids_str = re.sub(r"--[\w-]+(?:\s+['\"].*?['\"]|\s+\S+)?", "", rest).strip()
+        char_ids = ids_str.split()
+
+        if not setting:
+            return CommandResult(
+                f'  Usage: :cb {sub} <idA> <idB> --setting "description"\n'
+                f'         [--quote-mode auto|light|strong]\n'
+                f'         [--allow-direct-quotes] [--include-authorial-material]',
+                kind="error",
+            )
+        if len(char_ids) < 2:
+            return CommandResult(
+                f"  :cb {sub} requires at least two character IDs.", kind="error"
+            )
+
+        try:
+            from augmented_fiction.modules.voice.characterbuilder.storage import load_character
+            from augmented_fiction.modules.voice.characterbuilder.dialog import generate
+            profiles = [load_character(cid) for cid in char_ids]
+        except FileNotFoundError as exc:
+            return CommandResult(f"  {exc}", kind="error")
+
+        try:
+            out_path = generate(
+                profiles=profiles,
+                setting=setting,
+                mode=sub,
+                project_path=ctx.project_path,
+                llm_config=ctx.config.llm,
+                quote_mode=quote_mode,
+                allow_direct_quotes=allow_direct,
+                include_authorial_material=include_auth,
+            )
+            return CommandResult(f"  Draft saved: {out_path}")
+        except Exception as exc:
+            return CommandResult(f"  Generation failed: {exc}", kind="error")
+
+    # ── help ──────────────────────────────────────────────────────────────────
+    help_lines = [
+        "  :cb list                              list all characters",
+        "  :cb show <id>                         show character profile",
+        "  :cb create                            create a character (interview)",
+        "  :cb edit <id>                         edit a character (interview)",
+        "  :cb duplicate <id>                    duplicate a character",
+        "  :cb delete <id>                       delete a character",
+        "  :cb export <id>                       print Markdown dossier",
+        "  :cb extract <author_dir>              auto-draft characters from author package",
+        "  :cb extract <author_dir> --include-narrator  also extract per-book narrator profiles",
+        '  :cb dialog <idA> <idB> --setting "…"  generate dialog draft',
+        '  :cb scene  <idA> <idB> --setting "…"  generate scene draft',
+        "  (use same id twice for internal self-dialogue)",
+    ]
+    return CommandResult("\n".join(help_lines))
+
+
 # ── Utility commands ──────────────────────────────────────────────────────────
 
 def _modules_info(arg: str, ctx: WriteContext) -> CommandResult:
@@ -244,6 +508,12 @@ def build_registry(ctx: WriteContext) -> CommandRegistry:
         ["del", "delete"],
         _del_sentence,
         ":del <n>      delete displayed sentence number n",
+    )
+
+    registry.register(
+        ["cb", "char", "character"],
+        _cb_dispatch,
+        ":cb [sub-command]  character builder (list / show / create / edit / dialog / scene)",
     )
 
     registry.register(["modules"], _modules_info, "list active modules")

@@ -1,0 +1,124 @@
+{
+  "character_id": "cormac_mccarthy__judge_holden_2",
+  "display_name": "Judge Holden",
+  "source_author": "Cormac Mccarthy",
+  "source_work": "V_Blood Meridian",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T13:00:27Z",
+  "updated_at": "2026-04-21T13:00:27Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "the judge sat upwind from the fire naked to the waist, himself like some great pale deity"
+  },
+  "inner_engine": {
+    "core_desire": "to exert control over the world and its inhabitants",
+    "core_fear": "the loss of power and authority",
+    "avoidance": "",
+    "what_they_hide": "",
+    "key_contradiction": "He presents as both a learned man and a violent figure, inviting contradictory perceptions.",
+    "contradiction_behavior": "",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "He spoke with authority, often smiling, yet commandingly serious.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "He exerts control and asserts authority in conflicts.",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "His dominance and keen intellect are unmistakable.",
+    "behaviors": [],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "What joins men together, he said, is not the sharing of bread but the sharing of enemies.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "In the affairs of men there is no waning and the noon of his expression signals the onset of night.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Everything’s for sale, said the judge. What will you take?",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Ah Priest, said the judge. What could I ask of you that you’ve not already given?",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "War was always here. Before man was, war waited for him. The ultimate trade awaiting its ultimate practitioner.",
+        "source": "V_Blood Meridian",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": null,
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/cormac_mccarthy/characters/cormac_mccarthy__judge_holden_2.json",
+    "registry_path": "modules/voice/characterbuilder/characters/cormac_mccarthy__judge_holden_2.json"
+  }
+}

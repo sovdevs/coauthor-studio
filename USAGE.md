@@ -80,6 +80,85 @@ Dictionary lookup order: ChrisSpinu (102K words) → Wiktionary (1M+ words) → 
 
 ---
 
+## Character Builder
+
+Characters are global — they can be used in any project and by any dialog generation call.
+
+### Web UI
+
+Open the Characters section at `http://localhost:8000/characters`.
+
+- **Create** a character via form (full questionnaire with tooltip hints on every field)
+- **Edit** any existing character
+- **Duplicate** a character as a starting point for a variant
+- **Delete** a character
+- **Generate dialog** → jumps to the Dialog page with that character pre-selected
+
+Dialog generation at `http://localhost:8000/dialog/new`:
+
+- Select two characters (or the same character twice for internal self-dialogue)
+- Set a scene/setting description
+- Choose mode: **Dialog** (speaker-labeled lines) or **Scene** (narration + action)
+- Set voice options: quote mode, allow verbatim reuse, include authorial material
+- Select a project to save the draft to
+- **Generate** → editable draft appears
+- Edit the draft, then **Submit revision** → system infers what changed about each character
+- Review proposed profile updates (confidence-coded), then **Accept all** or **Reject all**
+
+### CLI — `:cb` commands
+
+Type any `:cb` command from within a `uv run af write <project>` session.
+
+```
+:cb list                               list all characters in the registry
+:cb show <id>                          print the full character profile as Markdown
+:cb create                             create a new character (guided interview)
+:cb edit <id>                          edit an existing character (guided interview)
+:cb duplicate <id>                     copy a character; adds "(Copy)" suffix
+:cb delete <id>                        delete a character (with confirmation)
+:cb export <id>                        print Markdown dossier to terminal
+```
+
+#### Dialog generation
+
+```
+:cb dialog <idA> <idB> --setting "…"   generate a dialog draft
+:cb scene  <idA> <idB> --setting "…"   generate a scene draft (includes narration)
+```
+
+Use the same ID twice for **internal self-dialogue** (one mind under pressure).
+
+Optional flags:
+```
+--quote-mode auto|light|strong          how closely to echo stored voice material
+--allow-direct-quotes                   permit verbatim reuse of reference quotes
+--include-authorial-material            make authorial material available for thematic use
+```
+
+#### Auto-extraction from author packages
+
+Extract draft character profiles from an existing author package (turnofphrase directory):
+
+```
+:cb extract <author_dir>
+:cb extract cormac_mccarthy                       # bare slug resolved automatically
+:cb extract modules/voice/turnofphrase/hemingway  # or full path
+:cb extract cormac_mccarthy --include-narrator    # also extract per-book narrator profiles
+```
+
+Flow:
+1. Loads processed passages (`passages.jsonl` → `extracted_text.json` → EPUB fallback)
+2. LLM detects candidate characters from a corpus sample
+3. Ranked candidate list is displayed — you pick which characters to draft (by number, range, or `all`)
+4. For each selected character: builds a raw evidence file → synthesises a draft profile
+5. Profile saved to global registry; extraction sidecar saved alongside it
+6. With `--include-narrator`: one additional narrator profile per book, marked `story.role = narrator`
+
+Extracted profiles are immediately available in Character Studio and for dialog generation.
+Evidence files saved to `<author_dir>/evidence/<character_slug>.md` for inspection.
+
+---
+
 ## Other commands
 
 ```bash

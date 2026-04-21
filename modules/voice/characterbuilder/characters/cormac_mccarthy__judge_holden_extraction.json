@@ -1,0 +1,44 @@
+{
+  "character_id": "cormac_mccarthy__judge_holden",
+  "extraction_timestamp": "2026-04-21T11:30:16Z",
+  "source_author_dir": "modules/voice/turnofphrase/cormac_mccarthy",
+  "model": "claude-sonnet-4-6",
+  "evidence_file": "modules/voice/turnofphrase/cormac_mccarthy/evidence/judge_holden.md",
+  "mention_count": 321,
+  "dialogue_count": 127,
+  "candidate_score": 581.0,
+  "field_confidence": {
+    "inner_engine.core_desire": {
+      "confidence": "high",
+      "note": ""
+    },
+    "inner_engine.core_fear": {
+      "confidence": "high",
+      "note": ""
+    },
+    "inner_engine.key_contradiction": {
+      "confidence": "medium",
+      "note": ""
+    },
+    "inner_engine.shame": {
+      "confidence": "low",
+      "note": ""
+    },
+    "voice.description": {
+      "confidence": "high",
+      "note": ""
+    },
+    "behavior.conflict_response": {
+      "confidence": "medium",
+      "note": ""
+    },
+    "behavior.pressure_response": {
+      "confidence": "low",
+      "note": ""
+    },
+    "demographics.regionalism": {
+      "confidence": "medium",
+      "note": ""
+    }
+  }
+}

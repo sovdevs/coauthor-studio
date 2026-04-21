@@ -1,0 +1,97 @@
+{
+  "character_id": "internet__tom_gatorex",
+  "display_name": "Tom Gatorex",
+  "source_author": "Internet",
+  "source_work": null,
+  "source_mode": "manual",
+  "created_at": "2026-04-20T12:57:17Z",
+  "updated_at": "2026-04-20T13:12:04Z",
+  "demographics": {
+    "age": "40 years of age",
+    "gender": "male",
+    "regionalism": "Sheffield, Yorkshire",
+    "physical_condition": "His height means he is stooping down quite a bit also explained by his poor posture.",
+    "class_register": "working to lower middle class",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "A little chaotic, tall and unwieldy, not sitting comfortably in skin. a little of a hunchback. Friendly but guarded. Can be obnoxious and confrontational"
+  },
+  "inner_engine": {
+    "core_desire": "recognition, validation, ambition to make money",
+    "core_fear": "being ignored, not having an audience, noises at night, unpredictability",
+    "avoidance": "accountability",
+    "what_they_hide": "their desire for a comfortable life i.e. enough money",
+    "key_contradiction": "Claims he is a spiritual leader but constantly criticizes people around him. Pays little but expects a lot.",
+    "contradiction_behavior": "is good at holding others to account but never himself.",
+    "shame": "Almost no shame. Will voice his opinion in any situation",
+    "false_belief": "That he is a spiritual guru",
+    "taboo": null
+  },
+  "voice": {
+    "description": "very regional, upbeat",
+    "sentence_length": "medium",
+    "question_frequency": "medium",
+    "abstraction_level": "low",
+    "uses_fragments": true,
+    "repetition": "high",
+    "metaphor": "low",
+    "conversation_control": "controls",
+    "verbosity": "long",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "seeks control. Avoids and evades",
+    "avoidance_pattern": "He will find a way to avoid facing up to things by using the advantage that he is not known and can simply leave where he is, leaving behind the mess and not having to be accountable for it",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [
+      "deflect",
+      "assert"
+    ],
+    "status_with_needed": "overly friendly",
+    "status_with_unneeded": "will avoid and make disparaging remarks about",
+    "intimacy_style": "Very open-minded",
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "They notice standard behavior from 'normal' people",
+    "behaviors": [
+      "Calling out people for their actions"
+    ],
+    "sensory_bias": "Sight",
+    "relational_tendencies": "Strangers will handle them according to their perceived social status; overly deferential to authority figures;",
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "it is what it is",
+        "source": "",
+        "is_canonical": false,
+        "added_by_user": true,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": "Antagonist",
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": null,
+    "registry_path": "modules/voice/characterbuilder/characters/internet__tom_gatorex.json"
+  }
+}

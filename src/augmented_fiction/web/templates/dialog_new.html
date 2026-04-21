@@ -1,0 +1,450 @@
+{% extends "base.html" %}
+{% block title %}Generate Dialog — CoAuthor Studio{% endblock %}
+
+{% block content %}
+<div class="dialog-layout">
+
+  {# ── Left: form ──────────────────────────────────────────────────────────── #}
+  <div class="dialog-form-col">
+    <h1 class="panel-title">Generate Dialog</h1>
+
+    <form id="dialog-form" class="dialog-form">
+
+      <section class="form-section">
+        <h2 class="section-title">Characters</h2>
+        {% if characters %}
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Character A</label>
+            <select name="char_a" class="field-select" required>
+              <option value="">— select —</option>
+              {% for c in characters %}
+              <option value="{{ c.character_id }}">
+                {{ c.display_name }}{% if c.source_author %} ({{ c.source_author }}){% endif %}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Character B</label>
+            <select name="char_b" class="field-select" required>
+              <option value="">— select —</option>
+              {% for c in characters %}
+              <option value="{{ c.character_id }}">
+                {{ c.display_name }}{% if c.source_author %} ({{ c.source_author }}){% endif %}
+              </option>
+              {% endfor %}
+            </select>
+          </div>
+        </div>
+        {% else %}
+        <p class="muted">No characters yet. <a href="/characters/new">Create one</a>.</p>
+        {% endif %}
+      </section>
+
+      <section class="form-section">
+        <h2 class="section-title">Setting</h2>
+        <div class="field-group">
+          <textarea name="setting" class="field-textarea" rows="3" required
+                    placeholder="Describe where and when this exchange takes place…"></textarea>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2 class="section-title">Mode</h2>
+        <div class="radio-group">
+          <label class="radio-label">
+            <input type="radio" name="mode" value="dialog" checked>
+            <span><strong>Dialog</strong>
+              <span class="field-hint">Speaker-labeled lines, tight exchange</span></span>
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="mode" value="scene">
+            <span><strong>Scene</strong>
+              <span class="field-hint">Includes narration, beats, physical action</span></span>
+          </label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2 class="section-title">Voice options</h2>
+        <div class="field-group">
+          <label class="field-label">Quote mode</label>
+          <select name="quote_mode" class="field-select">
+            <option value="auto">auto — use stored voice as natural anchors</option>
+            <option value="light">light — mostly fresh generation</option>
+            <option value="strong">strong — closely echo stored voice material</option>
+          </select>
+        </div>
+        <div class="checkbox-stack">
+          <label class="checkbox-label">
+            <input type="checkbox" name="allow_direct_quotes" value="1">
+            Allow verbatim reuse of reference quotes
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" name="include_authorial_material" value="1">
+            Make authorial material available for thematic use
+          </label>
+        </div>
+      </section>
+
+      <section class="form-section">
+        <h2 class="section-title">Project</h2>
+        {% if projects %}
+        <div class="field-group">
+          <select name="project_id" class="field-select" required>
+            <option value="">— select project —</option>
+            {% for proj in projects %}
+            <option value="{{ proj.id }}">{{ proj.title }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        {% else %}
+        <p class="muted">No projects found.</p>
+        {% endif %}
+      </section>
+
+      <div class="form-actions">
+        <button type="submit" id="generate-btn" class="btn-primary"
+                {% if not characters %}disabled{% endif %}>Generate</button>
+        <button type="button" id="regenerate-btn" class="btn-muted" hidden>Regenerate</button>
+        <span id="generate-status" class="submit-status"></span>
+      </div>
+
+    </form>
+  </div>
+
+  {# ── Right: draft editor + delta review ──────────────────────────────────── #}
+  <div class="dialog-output-col" id="dialog-output-col" hidden>
+
+    {# Draft editor #}
+    <div class="draft-editor-header">
+      <span class="section-title">Draft</span>
+      <div style="display:flex;gap:0.5rem;align-items:center">
+        <button type="button" id="reset-btn" class="btn-muted" hidden>Reset</button>
+        <button type="button" id="copy-btn" class="btn-muted">Copy</button>
+      </div>
+    </div>
+
+    <textarea id="dialog-draft" class="dialog-draft-editor"
+              placeholder="Generated draft will appear here…"
+              spellcheck="false"></textarea>
+
+    <p id="draft-path" class="field-hint" style="margin:0.4rem 0 0.75rem"></p>
+
+    <div class="draft-actions">
+      <button type="button" id="submit-revision-btn" class="btn-primary" hidden>
+        Submit revision for character update
+      </button>
+      <span id="revision-status" class="submit-status"></span>
+    </div>
+
+    {# Delta review panel #}
+    <div id="delta-panel" class="delta-panel" hidden>
+
+      <div class="delta-panel-header">
+        <span class="section-title">Inferred changes</span>
+        <span id="delta-log-id" class="field-hint"></span>
+      </div>
+
+      <div id="delta-characters"></div>
+
+      <div class="delta-actions">
+        <button type="button" id="accept-btn" class="btn-primary">Accept all</button>
+        <button type="button" id="reject-btn" class="btn-muted">Reject all</button>
+        <span id="accept-status" class="submit-status"></span>
+      </div>
+
+    </div>
+
+  </div>{# end dialog-output-col #}
+</div>
+
+<script>
+(function () {
+  // ── Elements ────────────────────────────────────────────────────────────────
+  const form          = document.getElementById('dialog-form');
+  const generateBtn   = document.getElementById('generate-btn');
+  const regenerateBtn = document.getElementById('regenerate-btn');
+  const genStatus     = document.getElementById('generate-status');
+  const outCol        = document.getElementById('dialog-output-col');
+  const draftTA       = document.getElementById('dialog-draft');
+  const pathEl        = document.getElementById('draft-path');
+  const copyBtn       = document.getElementById('copy-btn');
+  const resetBtn      = document.getElementById('reset-btn');
+  const submitRevBtn  = document.getElementById('submit-revision-btn');
+  const revStatus     = document.getElementById('revision-status');
+  const deltaPanel    = document.getElementById('delta-panel');
+  const deltaChars    = document.getElementById('delta-characters');
+  const deltaLogId    = document.getElementById('delta-log-id');
+  const acceptBtn     = document.getElementById('accept-btn');
+  const rejectBtn     = document.getElementById('reject-btn');
+  const acceptStatus  = document.getElementById('accept-status');
+
+  // ── State ───────────────────────────────────────────────────────────────────
+  let originalContent = '';
+  let lastDeltaResult = null;
+  let lastFormData    = null;   // stored for regenerate
+
+  // ── Helpers ─────────────────────────────────────────────────────────────────
+  function extractContent(fullText) {
+    // Strip the metadata header (everything up to and including the --- separator)
+    const sep = '\n---\n\n';
+    const idx = fullText.indexOf(sep);
+    return idx >= 0 ? fullText.slice(idx + sep.length).trim() : fullText.trim();
+  }
+
+  function setGenerating(busy) {
+    generateBtn.disabled = busy;
+    regenerateBtn.disabled = busy;
+    genStatus.textContent = busy ? 'Generating…' : '';
+    genStatus.className = 'submit-status';
+  }
+
+  function showDraft(content, savedPath) {
+    originalContent = content;
+    draftTA.value = content;
+    pathEl.textContent = savedPath ? 'Saved: ' + savedPath : '';
+    outCol.hidden = false;
+    submitRevBtn.hidden = false;
+    resetBtn.hidden = false;
+    deltaPanel.hidden = true;
+    deltaChars.innerHTML = '';
+    revStatus.textContent = '';
+    acceptStatus.textContent = '';
+  }
+
+  function confidenceClass(c) {
+    if (c >= 0.8) return 'conf-high';
+    if (c >= 0.6) return 'conf-med';
+    return 'conf-low';
+  }
+
+  function renderDelta(result) {
+    lastDeltaResult = result;
+    deltaLogId.textContent = 'log: ' + result.log_id;
+    deltaChars.innerHTML = '';
+
+    if (!result.affected_characters || result.affected_characters.length === 0) {
+      deltaChars.innerHTML = '<p class="muted" style="padding:0.5rem 0">No significant changes detected.</p>';
+      deltaPanel.hidden = false;
+      return;
+    }
+
+    for (const ch of result.affected_characters) {
+      const sec = document.createElement('div');
+      sec.className = 'delta-character';
+
+      const nameEl = document.createElement('div');
+      nameEl.className = 'delta-char-name';
+      nameEl.textContent = ch.display_name;
+      sec.appendChild(nameEl);
+
+      // Change labels
+      if (ch.change_labels.length > 0) {
+        const labelsEl = document.createElement('div');
+        labelsEl.className = 'delta-labels';
+        for (const cl of ch.change_labels) {
+          const tag = document.createElement('span');
+          tag.className = 'delta-label ' + confidenceClass(cl.confidence);
+          tag.title = 'confidence: ' + (cl.confidence * 100).toFixed(0) + '%';
+          tag.textContent = cl.label.replace(/_/g, ' ');
+          labelsEl.appendChild(tag);
+        }
+        sec.appendChild(labelsEl);
+      }
+
+      // Proposed updates
+      if (ch.proposed_updates.length > 0) {
+        const table = document.createElement('table');
+        table.className = 'delta-updates-table';
+        table.innerHTML = '<thead><tr><th>Field</th><th>Change</th><th>Confidence</th></tr></thead>';
+        const tbody = document.createElement('tbody');
+        for (const u of ch.proposed_updates) {
+          const tr = document.createElement('tr');
+          const changeText = u.update_type === 'append'
+            ? '+ "' + u.proposed_value + '"'
+            : u.current_value + ' → ' + u.proposed_value;
+          const confPct = (u.confidence * 100).toFixed(0) + '%';
+          tr.innerHTML = `
+            <td>${u.display_name}</td>
+            <td><span class="update-arrow ${confidenceClass(u.confidence)}">${changeText}</span></td>
+            <td><span class="conf-pill ${confidenceClass(u.confidence)}">${confPct}</span></td>
+          `;
+          tbody.appendChild(tr);
+        }
+        table.appendChild(tbody);
+        sec.appendChild(table);
+      } else {
+        const noUpd = document.createElement('p');
+        noUpd.className = 'field-hint';
+        noUpd.style.padding = '0.25rem 0';
+        noUpd.textContent = 'No profile updates proposed for this character.';
+        sec.appendChild(noUpd);
+      }
+
+      deltaChars.appendChild(sec);
+    }
+
+    deltaPanel.hidden = false;
+    deltaPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  // ── Generate ─────────────────────────────────────────────────────────────────
+  async function runGenerate(formData) {
+    setGenerating(true);
+    try {
+      const resp = await fetch('/dialog/generate', { method: 'POST', body: formData });
+      const json = await resp.json();
+      if (json.error) {
+        genStatus.textContent = json.error;
+        genStatus.className = 'submit-status submit-error';
+      } else {
+        genStatus.textContent = '';
+        const content = extractContent(json.content);
+        showDraft(content, json.path);
+        lastFormData = formData;
+        regenerateBtn.hidden = false;
+      }
+    } catch (err) {
+      genStatus.textContent = 'Network error';
+      genStatus.className = 'submit-status submit-error';
+    } finally {
+      setGenerating(false);
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    runGenerate(new FormData(form));
+  });
+
+  regenerateBtn.addEventListener('click', () => {
+    if (lastFormData) runGenerate(new FormData(form));
+  });
+
+  // ── Copy / Reset ─────────────────────────────────────────────────────────────
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(draftTA.value).then(() => {
+      copyBtn.textContent = 'Copied';
+      setTimeout(() => copyBtn.textContent = 'Copy', 1500);
+    });
+  });
+
+  resetBtn.addEventListener('click', () => {
+    draftTA.value = originalContent;
+    deltaPanel.hidden = true;
+    revStatus.textContent = '';
+  });
+
+  // ── Submit revision ───────────────────────────────────────────────────────────
+  submitRevBtn.addEventListener('click', async () => {
+    const revised = draftTA.value.trim();
+    if (!revised || revised === originalContent) {
+      revStatus.textContent = 'Edit the draft before submitting.';
+      revStatus.className = 'submit-status submit-error';
+      return;
+    }
+
+    submitRevBtn.disabled = true;
+    revStatus.textContent = 'Analysing…';
+    revStatus.className = 'submit-status';
+
+    const fd = new FormData(form);
+    const data = new FormData();
+    data.append('original_content', originalContent);
+    data.append('revised_content', revised);
+    data.append('char_ids', fd.get('char_a'));
+    data.append('char_ids', fd.get('char_b'));
+    data.append('mode', fd.get('mode'));
+    data.append('setting', fd.get('setting'));
+    data.append('project_id', fd.get('project_id'));
+
+    try {
+      const resp = await fetch('/dialog/submit-revision', { method: 'POST', body: data });
+      const json = await resp.json();
+      if (json.error) {
+        revStatus.textContent = json.error;
+        revStatus.className = 'submit-status submit-error';
+      } else {
+        revStatus.textContent = '';
+        renderDelta(json);
+      }
+    } catch (err) {
+      revStatus.textContent = 'Network error';
+      revStatus.className = 'submit-status submit-error';
+    } finally {
+      submitRevBtn.disabled = false;
+    }
+  });
+
+  // ── Accept / Reject ───────────────────────────────────────────────────────────
+  acceptBtn.addEventListener('click', async () => {
+    if (!lastDeltaResult) return;
+
+    acceptBtn.disabled = true;
+    acceptStatus.textContent = 'Applying…';
+
+    // Build the updates payload grouped by character
+    const allUpdates = lastDeltaResult.affected_characters.map(ch => ({
+      character_id: ch.character_id,
+      updates: ch.proposed_updates.map(u => ({
+        field: u.field,
+        proposed_value: u.proposed_value,
+        update_type: u.update_type,
+      })),
+    })).filter(ch => ch.updates.length > 0);
+
+    const fd = new FormData(form);
+    const data = new FormData();
+    data.append('updates_json', JSON.stringify(allUpdates));
+    data.append('log_id', lastDeltaResult.log_id);
+    data.append('project_id', fd.get('project_id'));
+    data.append('mode', fd.get('mode'));
+    data.append('setting', fd.get('setting'));
+    data.append('char_ids', fd.get('char_a'));
+    data.append('char_ids', fd.get('char_b'));
+    data.append('original_content', originalContent);
+    data.append('revised_content', draftTA.value);
+
+    try {
+      const resp = await fetch('/dialog/accept-updates', { method: 'POST', body: data });
+      const json = await resp.json();
+      if (json.error) {
+        acceptStatus.textContent = json.error;
+        acceptStatus.className = 'submit-status submit-error';
+      } else {
+        acceptStatus.textContent = `${json.applied_count} update(s) applied. Character saved.`;
+        acceptStatus.className = 'submit-status';
+        acceptBtn.hidden = true;
+        rejectBtn.hidden = true;
+        regenerateBtn.hidden = false;
+      }
+    } catch (err) {
+      acceptStatus.textContent = 'Network error';
+      acceptStatus.className = 'submit-status submit-error';
+    } finally {
+      acceptBtn.disabled = false;
+    }
+  });
+
+  rejectBtn.addEventListener('click', () => {
+    deltaPanel.hidden = true;
+    lastDeltaResult = null;
+    revStatus.textContent = 'Changes rejected.';
+    revStatus.className = 'submit-status';
+    // Restore accept/reject buttons for next time
+    acceptBtn.hidden = false;
+    rejectBtn.hidden = false;
+  });
+
+  // ── Pre-select char_a from ?a= query param ────────────────────────────────────
+  const params = new URLSearchParams(location.search);
+  const a = params.get('a');
+  if (a) {
+    const sel = form.querySelector('[name="char_a"]');
+    if (sel) sel.value = a;
+  }
+})();
+</script>
+{% endblock %}

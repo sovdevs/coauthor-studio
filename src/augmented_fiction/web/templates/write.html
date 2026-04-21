@@ -96,6 +96,20 @@
       &nbsp; <code>:help</code> &nbsp; <code>:q</code> quit
     </div>
 
+  {% if characters %}
+  <div class="char-ref">
+    <span class="cmd-ref-title">Characters</span>
+    {% for c in characters %}
+    <span class="char-ref-item">
+      <a href="/characters/{{ c.character_id }}" class="char-ref-link">{{ c.display_name }}</a>
+      <code class="char-ref-id">{{ c.character_id }}</code>
+      <span class="char-source-badge source-{{ c.source_mode }}">{{ c.source_mode }}</span>
+    </span>
+    {% endfor %}
+    <a href="/dialog/new" class="char-ref-dialog-link">→ generate dialog</a>
+  </div>
+  {% endif %}
+
   </div>{# end typing-area #}
   </div>{# end page-right #}
 </div>

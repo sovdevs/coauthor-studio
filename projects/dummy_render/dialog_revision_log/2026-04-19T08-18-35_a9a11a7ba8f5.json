@@ -1,0 +1,109 @@
+{
+  "log_id": "a9a11a7ba8f5",
+  "timestamp": "2026-04-19T08:18:35Z",
+  "mode": "dialog",
+  "setting": "at the petrol station counter",
+  "character_ids": [
+    "me__bob",
+    "me__bob"
+  ],
+  "original_content": "Owright, there. Just a quick fill-up, that’s all. No need to linger. Just get in, get out. But look at her, though. That one, right there. Young, fresh. They like a bit of charm, don’t they? A smile, a wink. Just a bit of banter, nothing too heavy. Keep it light, keep it easy. \r\n\r\nBut what if she sees through it? What if she knows? Knows I’m not what I say I am. Just a bloke in a flash car, trying to play the part. Don’t think about that. Just keep it moving. \r\n\r\n“Hey, love, you got a minute?” No, no, too forward. Just a nod, maybe. A casual glance. That’ll do. But what if she thinks I’m just some old creep? Can’t have that. Can’t let her see the real me. \r\n\r\nBut I’m not a creep, am I? Just a bit of fun. Just a laugh. They all want a bit of excitement, don’t they? Just a bit of thrill. But what if she’s not into that? What if she’s got a fella? Or worse, what if she’s got a dad? \r\n\r\nJust fill up the tank, Bob. Focus on the petrol. But the way she’s looking over… Is she interested? Or just being polite? Can’t read it. Can’t read her. \r\n\r\n“Nice day, innit?” No, too cliché. Just keep it simple. Just a smile. But what if she thinks I’m too old? Too past it? Can’t let that happen. Can’t let that thought creep in. \r\n\r\nJust a bit of charm, that’s all. Just a bit of charm. But what if it all goes wrong? What if she laughs? What if she tells someone? Can’t have that. Can’t let the wife find out. \r\n\r\nJust keep it cool, Bob. Just keep it cool. Don’t overthink it. Just a quick chat, then off you go. But what if she’s the one? What if she’s the one who sees through it all?",
+  "revised_content": "Owright, there. Just a quick fill-up, that’s all. No need to linger. In for a penny, out for a pound. Take a look at that, though. The one right there. Young, fresh, untouched, pure. The lines. They like a bit of charm, don’t they? A smile, a wink. Just a bit of Northern banter, nothing too heavy. Keep it light, keep it easy. \r\n\r\nBut this isn't the 80's any more. These girls are wise to it, they have seen the film countless times, or their mothers have. Grandmas? As they say, a girl learns all about the world from her mother. Or is it her peers? Like her gormless looking friend next to her. Olive Rudge, Olive Sludge more like. So if her mother knows I’m not what I say I am. Just a bloke in a flash car, trying to play the part. But hey, do not dwell on that. Just keep it moving. \r\n\r\n“Hey, love, you got a minute?” No, no, too forward. Just a nod, maybe. A casual glance. That’ll do. But I can’t have her thinking I'm just another old creep. Some of them like an older man. Has to be an angle there. \r\n\r\nNo question I am a creep. It's just a bit of fun. Just a laugh. They all want a bit of excitement, don’t they? Just a bit of thrill. But wait what if she's one of them feminists. What if she’s got a fella? Or worse, what if Olive over there does a bit of cock-blocking on me? \r\n\r\nJust fill up the tank, Bob. Focus on the petrol. But the way she’s looking over… Is she interested? Or just being polite? Can’t read it. Can’t read her. \r\n\r\n“Nice day, innit?” No, too cliché. Just keep it simple. Just a smile. But what if she thinks I’m too old? Too past it? Can’t let that happen. Can’t let that thought creep in. \r\n\r\nJust a bit of charm, that’s all. Just a bit of charm. But what if it all goes wrong? What if she laughs? What if she tells someone? Can’t have that. Can’t let the wife find out. \r\n\r\nJust keep it cool, Bob. Just keep it cool. Don’t overthink it. Just a quick chat, then off you go. But what if she’s the one? What if she’s the one who sees through it all?",
+  "delta": {
+    "affected_characters": [
+      {
+        "character_id": "me__bob",
+        "change_labels": [
+          {
+            "label": "more_explicit_self_analysis",
+            "confidence": 0.8
+          },
+          {
+            "label": "more_direct",
+            "confidence": 0.8
+          },
+          {
+            "label": "less_guarded",
+            "confidence": 0.7
+          }
+        ],
+        "proposed_updates": [
+          {
+            "field": "voice.explicitness",
+            "display_name": "Explicitness",
+            "update_type": "step_up",
+            "current_value": "medium",
+            "proposed_value": "high",
+            "reason": "more_explicit_self_analysis",
+            "confidence": 0.8
+          },
+          {
+            "field": "voice.directness",
+            "display_name": "Directness",
+            "update_type": "step_up",
+            "current_value": "medium",
+            "proposed_value": "high",
+            "reason": "more_direct",
+            "confidence": 0.8
+          },
+          {
+            "field": "signature.lexical_markers",
+            "display_name": "Lexical markers",
+            "update_type": "append",
+            "current_value": "(none)",
+            "proposed_value": "in for a penny, out for a pound",
+            "reason": "more_regional_idiom",
+            "confidence": 0.6
+          },
+          {
+            "field": "signature.lexical_markers",
+            "display_name": "Lexical markers",
+            "update_type": "append",
+            "current_value": "(none)",
+            "proposed_value": "Olive Rudge, Olive Sludge",
+            "reason": "more_regional_idiom",
+            "confidence": 0.6
+          },
+          {
+            "field": "signature.lexical_markers",
+            "display_name": "Lexical markers",
+            "update_type": "append",
+            "current_value": "(none)",
+            "proposed_value": "feminists",
+            "reason": "more_regional_idiom",
+            "confidence": 0.6
+          },
+          {
+            "field": "signature.lexical_markers",
+            "display_name": "Lexical markers",
+            "update_type": "append",
+            "current_value": "(none)",
+            "proposed_value": "cock-blocking",
+            "reason": "more_regional_idiom",
+            "confidence": 0.6
+          },
+          {
+            "field": "signature.speech_patterns",
+            "display_name": "Speech patterns",
+            "update_type": "append",
+            "current_value": "(none)",
+            "proposed_value": "more references to external influences (mother, peers)",
+            "reason": "inferred from revision",
+            "confidence": 0.55
+          }
+        ],
+        "new_lexical_markers": [
+          "in for a penny, out for a pound",
+          "Olive Rudge, Olive Sludge",
+          "feminists",
+          "cock-blocking"
+        ],
+        "new_speech_patterns": [
+          "more references to external influences (mother, peers)"
+        ]
+      }
+    ]
+  },
+  "accepted": null,
+  "applied_updates": []
+}

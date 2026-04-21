@@ -1,0 +1,86 @@
+Ok next step for Claude is
+B. Complete Voice/Fiction Style
+1 Need characters for dialog generation
+WE ARE HERE TESTING Dialog between Characters
+
+
+(1) Extract characters should be done FIRST Characters go in separate folder ACROSS AUTHORS but indicating where they came from
+(2) Dialog geneator needs inputs a keyword plus two or more characters
+(3) Once dialog done, link up with :g <100 words> to user interface based on author style or :d generte dialog with options, ...
+DIALOG GENERATION IS CLOSE TO DONE In a different way more intehrated
+
+
+From books
+INSTEAD OF PLOT THINK SCENES (already included scenes) and TRANSITIONS
+FILLERS - Weather descriptions etc
+
+Plausibility Checks befpore EXPORT
+spelling grammar
+hsitorical facts ?
+quotes?
+
+
+
+---------------- export format
+Character Packs! Just exported JSONS
+Like Authors too
+
+
+Before PLOT
+
+WriterPreference
+uses revisions to train a model which creates a
+
+{
+  "writer_id": "vincent",
+  "preferences": {
+    "reduce_explicit_self_analysis": 0.9,
+    "increase_fragmentation_in_internal_dialogue": 0.8,
+    "prefer_subtext_over_explanation": 0.95,
+    "increase_dialogue_asymmetry": 0.75,
+    "allow_regional_idiom": 0.7,
+    "avoid_general_truth_statements": 0.9
+  }
+}
+
+to capture writer's style
+
+FIRST YOU NEED USERS (WRITERS)
+
+----------------------------------
+NEXT THING IS PLOT!!
+What Happens in the story....
+
+
+Personal Version --> COMPLETE
+
+
+________________________________________________________
+User Manageemnt is for Permanence also buying Author Plot and Character packs
+
+
+
+_DEPLOYED VERSION_IS JUST THIS EXTRA
+
+C. User Management && Google Drive
+(1) User sign up and log in via magnetic email link (no passwords)
+(2) User Detail page
+2.1 add a google drive link to write markdown to. All storage is done away from the app- no persistence
+2.2 lists projects for that user
+2.3 each project can be exported. Export joins chapters together and builds an epub or txt (No formatting at this stage)
+2.4 can select AUTHOR PACKS (paid for) and also suggest authors (get written to the ADMIN's file store)
+(3) Admin user is stored in config.
+
+AI Detector!
+After rewrite phase have an AI detector come up with a % AI content
+
+Content
+AIdeas for author packs
+Booker Prize Winners
+https://thebookerprizes.com/the-booker-library/features/full-list-of-booker-prize-winners-shortlisted-and-longlisted-authors
+
+
+
+Currently deployed to
+
+https://coauthor-studio.onrender.com

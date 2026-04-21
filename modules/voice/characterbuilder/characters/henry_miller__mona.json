@@ -1,0 +1,124 @@
+{
+  "character_id": "henry_miller__mona",
+  "display_name": "Mona",
+  "source_author": "Henry Miller",
+  "source_work": "XX_Nexus",
+  "source_mode": "extracted",
+  "created_at": "2026-04-21T13:12:43Z",
+  "updated_at": "2026-04-21T13:12:43Z",
+  "demographics": {
+    "age": "",
+    "gender": "",
+    "regionalism": "",
+    "physical_condition": null,
+    "class_register": "",
+    "regionalism_strength": "low"
+  },
+  "surface": {
+    "first_impression": "Mona is portrayed as vibrant and theatrical, with strong emotional expressions."
+  },
+  "inner_engine": {
+    "core_desire": "To be loved and to live harmoniously with those she cares about.",
+    "core_fear": "Abandonment and being without the people she loves.",
+    "avoidance": "",
+    "what_they_hide": "",
+    "key_contradiction": "She wishes for connection yet expresses frustration and disappointment in relationships.",
+    "contradiction_behavior": "Alternates between expressing deep affection and pushing people away when she feels threatened.",
+    "shame": null,
+    "false_belief": null,
+    "taboo": null
+  },
+  "voice": {
+    "description": "Mona's speech is often direct, emotional, and engaging, indicative of her passionate nature.",
+    "sentence_length": "medium",
+    "question_frequency": "low",
+    "abstraction_level": "medium",
+    "uses_fragments": null,
+    "repetition": "low",
+    "metaphor": "low",
+    "conversation_control": "mixed",
+    "verbosity": "variable",
+    "explicitness": "medium",
+    "fragmentation": "low",
+    "directness": "medium"
+  },
+  "behavior": {
+    "conflict_response": "Mona tends to react emotionally, often pleading or expressing her feelings intensely.",
+    "avoidance_pattern": "",
+    "dialogue_stance": "mixed",
+    "dialogue_moves": [],
+    "status_with_needed": null,
+    "status_with_unneeded": null,
+    "intimacy_style": null,
+    "pressure_response": null,
+    "evasiveness": "low",
+    "guardedness": "low",
+    "pressure_repetition": "low"
+  },
+  "signature": {
+    "what_they_notice": "Mona particularly notices the emotional states and needs of others, often responding to them with urgency.",
+    "behaviors": [],
+    "sensory_bias": null,
+    "relational_tendencies": null,
+    "anti_patterns": [],
+    "example_lines": [],
+    "speech_patterns": [],
+    "lexical_markers": [],
+    "reference_quotes": [
+      {
+        "text": "I want you both. I need you. I love you.",
+        "source": "XX_Nexus",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "I'm nothing without you.",
+        "source": "XX_Nexus",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Don't leave me, please!",
+        "source": "XX_Nexus",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "You come too, said Mona to Stasia.",
+        "source": "XX_Nexus",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      },
+      {
+        "text": "Mona's spirits rose. She loved liqueurs.",
+        "source": "XX_Nexus",
+        "is_canonical": true,
+        "added_by_user": false,
+        "tone": "",
+        "notes": ""
+      }
+    ],
+    "authorial_material": []
+  },
+  "story": {
+    "role": null,
+    "scene_function": null
+  },
+  "style_trace": {
+    "dominant_verbs": null,
+    "concrete_noun_ratio": null,
+    "common_tokens": []
+  },
+  "provenance": {
+    "local_path": "modules/voice/turnofphrase/henry_miller/characters/henry_miller__mona.json",
+    "registry_path": "modules/voice/characterbuilder/characters/henry_miller__mona.json"
+  }
+}
